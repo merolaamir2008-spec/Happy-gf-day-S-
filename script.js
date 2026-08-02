@@ -344,9 +344,9 @@ function createPetalBurst() {
 
 // ===== PHOTO SLIDESHOW =====
 const photos = [
-  "images/photo1.jpg",
-  "images/photo2.jpg",
-  "images/photo3.jpg"
+  "photo1.jpg",
+  "photo2.jpg",
+  "photo3.jpg"
 ];
 
 let current = 0;
@@ -370,7 +370,7 @@ if (slide) {
 
     if (secretClicks >= 3) {  
       secretShown = true;  
-      slide.src = "images/photo4.jpg";  
+      slide.src = "photo4.jpg";  
       if (normalCaption) normalCaption.style.display = "none";  
       if (secretMessage) secretMessage.textContent = "I saved my favourite for last.";  
     }
