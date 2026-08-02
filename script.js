@@ -342,7 +342,7 @@ function createPetalBurst() {
   }
 }
 
-// ===== PHOTO SLIDESHOW =====
+// ==// ===== PHOTO SLIDESHOW =====
 const photos = [
   "photo1.jpg",
   "photo2.jpg",
@@ -358,6 +358,11 @@ let current = 0;
 let secretClicks = 0;
 let secretShown = false;
 
+// Set the very first image immediately when the page loads
+if (slide) {
+  slide.src = photos[current];
+}
+
 setInterval(() => {
   if (secretShown || !slide) return;  
   current++;  
@@ -366,6 +371,7 @@ setInterval(() => {
   }  
   slide.src = photos[current];
 }, 4000);
+
 
 // ===== SECRET 4TH PHOTO =====
 if (slide) {
