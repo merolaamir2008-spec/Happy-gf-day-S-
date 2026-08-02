@@ -1,0 +1,830 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ffd6e7, #ffeef5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #444;
+    transition: background 1s ease;
+}
+
+/* ===== SECTIONS ===== */
+
+section {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ===== HEADINGS ===== */
+
+h1 {
+    font-size: 3rem;
+    color: #ff4f8b;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2.2rem;
+    color: #ff4f8b;
+    margin-bottom: 30px;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+.signature {
+    font-family: "Georgia", serif;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 18px;
+    color: #d9789b;
+    letter-spacing: 3px;
+    opacity: .9;
+}
+
+/* ===== BUTTONS ===== */
+
+button {
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+#openBtn {
+    margin-top: 30px;
+    padding: 18px 45px;
+    background: #ff4f8b;
+    color: white;
+    font-size: 1.3rem;
+    box-shadow: 0 8px 20px rgba(255, 79, 139, .3);
+}
+
+#openBtn:hover {
+    transform: scale(1.08);
+}
+
+.buttons {
+    display: flex;
+    gap: 30px;
+}
+
+#yesBtn {
+    background: #ff4f8b;
+    color: white;
+    padding: 15px 40px;
+    font-size: 24px;
+    position: relative;
+    z-index: 10;
+    transition: all .4s ease;
+}
+
+#noBtn {
+    background: white;
+    color: #ff4f8b;
+    padding: 15px 40px;
+    font-size: 24px;
+    transition: all .3s ease;
+}
+
+#giftBtn {
+    margin-top: 35px;
+    background: #ff4f8b;
+    color: white;
+    padding: 16px 40px;
+    font-size: 22px;
+}
+
+#message {
+    margin-top: 25px;
+    color: #ff4f8b;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+/* ===== SLIDESHOW ===== */
+
+#slide {
+    cursor: pointer;
+}
+
+.slideshow img {
+    width: 300px;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 8px solid white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .15);
+    opacity: 1;
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.slideshow img.change {
+    opacity: 0;
+    transform: scale(1.05);
+}
+
+.caption {
+    margin-top: 25px;
+    color: #ff4f8b;
+}
+
+/* ===== FLOATING HEARTS ===== */
+
+#hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    bottom: -30px;
+    animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-120vh) scale(2);
+        opacity: 0;
+    }
+}
+
+/* ===== FALLING PETALS ===== */
+
+.petal {
+    position: fixed;
+    pointer-events: none;
+    z-index: 999;
+    animation: petalFall linear forwards;
+    user-select: none;
+    will-change: transform;
+}
+
+@keyframes petalFall {
+    0% {
+        transform: translateX(0) translateY(-60px) rotate(0deg) scale(.8);
+        opacity: 1;
+    }
+    20% {
+        transform: translateX(-30px) translateY(20vh) rotate(90deg) scale(1);
+        opacity: 1;
+    }
+    40% {
+        transform: translateX(40px) translateY(40vh) rotate(180deg);
+        opacity: 1;
+    }
+    60% {
+        transform: translateX(-35px) translateY(65vh) rotate(270deg);
+        opacity: 1;
+    }
+    80% {
+        transform: translateX(30px) translateY(90vh) rotate(330deg);
+        opacity: 1;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-15px) translateY(120vh) rotate(420deg) scale(.7);
+        opacity: 0;
+    }
+}
+
+/* ===== FADE ANIMATION ===== */
+
+.fade {
+    animation: fade .8s ease;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== RIBBONS ===== */
+
+.ribbon {
+    position: fixed;
+    top: 15px;
+    font-size: 65px;
+    z-index: 1000;
+    animation: ribbonFloat 3s ease-in-out infinite;
+    cursor: pointer;
+    user-select: none;
+}
+
+.ribbon-left {
+    left: 20px;
+}
+
+.ribbon-right {
+    right: 20px;
+}
+
+@keyframes ribbonFloat {
+    0% {
+        transform: translateY(0) rotate(-8deg);
+    }
+    50% {
+        transform: translateY(10px) rotate(8deg);
+    }
+    100% {
+        transform: translateY(0) rotate(-8deg);
+    }
+}
+
+/* ===== MUSIC BUTTON ===== */
+
+#musicBtn {
+    position: fixed;
+    top: 98px;
+    right: 20px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: #ff4f8b;
+    color: white;
+    font-size: 24px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .2);
+    z-index: 1001;
+}
+
+#musicBtn.playing {
+    animation: musicMagic 2s infinite;
+}
+
+@keyframes musicMagic {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px #ff9fc7;
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px #ff9fc7, 0 0 40px #ffc6df;
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px #ff9fc7;
+    }
+}
+
+#musicBtn.playing::before {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 2px solid #ffb6d5;
+    animation: soundRing 2s infinite;
+}
+
+@keyframes soundRing {
+    0% {
+        transform: scale(.8);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+}
+
+
+/* ===== DATE BUTTON ===== */
+
+#dateBtn{
+    position:fixed;
+    top:98px;
+    left:20px;
+
+    width:55px;
+    height:55px;
+
+    border-radius:18px;
+
+    background:#ff4f8b;
+    color:white;
+
+    font-size:24px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+
+    z-index:1001;
+
+    transition:.35s;
+}
+
+#dateBtn:hover{
+    transform:scale(1.08);
+}
+
+
+/* ===== LOADING SCREEN ===== */
+
+#loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.progress {
+    width: 280px;
+    height: 22px;
+    background: #ffe4ee;
+    border-radius: 50px;
+    overflow: hidden;
+    border: 3px solid #ff8fb7;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+}
+
+#progressBar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #ff6ea8, #ff9cc2);
+    border-radius: 50px;
+    transition: width .08s linear;
+}
+
+#progressText {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ff4f8b;
+}
+
+/* ===== SPARKLES ===== */
+
+.sparkle {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 2000;
+    box-shadow: 0 0 8px #fff, 0 0 15px #ff9ed1, 0 0 25px #ff9ed1;
+    animation: sparkleMagic 1s ease-out forwards;
+}
+
+@keyframes sparkleMagic {
+    0% {
+        transform: translate(0, 0) scale(0);
+        opacity: 1;
+    }
+    40% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--x), var(--y)) scale(1.8);
+        opacity: 0;
+    }
+}
+
+/* ===== TEDDY BEAR ===== */
+
+#teddy {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 1002;
+    user-select: none;
+    transition: transform .3s ease;
+}
+
+@media (hover: hover) {
+    #teddy:hover {
+        transform: scale(1.1);
+    }
+}
+
+#teddy:focus {
+    outline: none;
+    transform: none;
+}
+
+#teddyBubble {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    max-width: 220px;
+    background: white;
+    color: #ff4f8b;
+    padding: 12px 16px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .15);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: .35s;
+    pointer-events: none;
+    z-index: 1003;
+}
+
+#teddyBubble.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#teddyBubble::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    right: 24px;
+    width: 16px;
+    height: 16px;
+    background: white;
+    transform: rotate(45deg);
+}
+
+.sleepZ {
+    position: fixed;
+    pointer-events: none;
+    font-size: 22px;
+    z-index: 1005;
+    animation: sleepFloat 2s linear forwards;
+    transition: opacity 1s ease;
+}
+
+.hideDecor,
+.hidden .sleepZ {
+    opacity: 0 !important;
+    transform: translateY(20px) scale(.9);
+    pointer-events: none !important;
+    display: none !important;
+}
+
+
+@keyframes sleepFloat {
+    0% {
+        opacity: 0;
+        transform: translateY(0) translateX(0) scale(.8);
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-45px) translateX(15px) scale(1.3);
+    }
+}
+
+.teddySleeping {
+    animation: teddyBreath 3.5s ease-in-out infinite;
+}
+
+@keyframes teddyBreath {
+    0%, 100% {
+        transform: scale(1) rotate(-2deg);
+    }
+    50% {
+        transform: scale(1.04) rotate(1deg);
+    }
+}
+
+
+/* ===== DATE CARD ===== */
+
+#dateCard{
+
+    position:fixed;
+
+    top:170px;
+    left:20px;
+
+    width:240px;
+
+    padding:18px;
+
+    border-radius:22px;
+
+    background:rgba(255,255,255,.95);
+
+    color:#ff4f8b;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.15);
+
+    z-index:1005;
+
+    opacity:0;
+    transform:translateY(-10px) scale(.9);
+
+    pointer-events:none;
+
+    transition:
+        opacity .35s ease,
+        transform .35s ease;
+
+}
+
+#dateCard.show{
+
+    opacity:1;
+
+    transform:translateY(0) scale(1);
+
+    pointer-events:auto;
+
+}
+
+#dateCard h3{
+
+    margin-bottom:12px;
+
+}
+
+#dateCard p{
+
+    margin:8px 0;
+
+    font-size:16px;
+
+}
+
+/* ===== FLOWER ===== */
+
+#plant {
+    position: fixed;
+    bottom: 32px;
+    left: 20px;
+
+    /* Force clean emoji rendering on Samsung/Android */
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Android Emoji", sans-serif;
+    font-size: 38px;
+    line-height: 1;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+    user-select: none;
+
+    z-index: 1002;
+
+    transition:
+        transform .35s ease,
+        filter .35s ease;
+}
+
+#plant:hover {
+    transform: scale(1.08);
+}
+
+#plant.bloom,
+#moon.bloom {
+    animation: plantBloom .55s ease;
+}
+
+
+@keyframes plantBloom {
+    0% {
+        transform: scale(1);
+    }
+    40% {
+        transform: scale(1.25) rotate(-8deg);
+    }
+    70% {
+        transform: scale(.95) rotate(5deg);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ===== MOON SPIRIT ===== */
+
+#moon {
+    position: fixed;
+    bottom: 30px;
+    left: 20px;
+
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Android Emoji", sans-serif;
+    font-size: 38px;
+    line-height: 1;
+    width: 45px;
+    height: 45px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+    user-select: none;
+
+    z-index: 1002;
+    transition: transform .5s ease, filter .5s ease;
+}
+
+#moon.bloom {
+    animation: plantBloom .55s ease;
+}
+
+#moonCat {
+    position: fixed;
+    left: 72px;
+    bottom: 25px;
+
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Android Emoji", sans-serif;
+    font-size: 32px;
+    line-height: 1;
+
+    opacity: 0;
+    z-index: 1003;
+    pointer-events: none;
+    user-select: none;
+    
+    /* Adds a subtle magical spirit aura */
+    filter: drop-shadow(0 0 10px rgba(168, 143, 255, 0.8));
+}
+
+/* 🎮 Game-like Spawn Animation */
+#moonCat.appear {
+    animation: 
+        catSpawn 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards,
+        catFloat 2.5s ease-in-out infinite 0.7s; /* Starts breathing loop after spawn */
+}
+
+#moon.bright {
+    animation: moonGlow 2s ease-in-out infinite;
+}
+
+@keyframes moonGlow {
+    0%, 100% {
+        filter: drop-shadow(0 0 5px white);
+        transform: scale(1);
+    }
+    50% {
+        filter: drop-shadow(0 0 18px #fff4a8);
+        transform: scale(1.08);
+    }
+}
+
+/* 1. Pop out of the moon with a springy bounce */
+@keyframes catSpawn {
+    0% {
+        opacity: 0;
+        transform: translate(-20px, 15px) scale(0) rotate(-20deg);
+    }
+    60% {
+        opacity: 1;
+        transform: translate(0, -8px) scale(1.2) rotate(10deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+}
+
+/* 2. Idle floating game loop */
+@keyframes catFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-6px) rotate(4deg);
+    }
+}
+
+
+
+/* ===== BUTTERFLY ===== */
+
+#butterfly{
+
+    position:fixed;
+
+    left:35px;
+    bottom:55px;
+
+    font-size:30px;
+
+    pointer-events:none;
+
+    opacity:0;
+
+    z-index:1003;
+
+    transform-origin:center;
+
+}
+
+/* ===== NIGHT MODE ===== */
+
+body.night-mode {
+    background: linear-gradient(180deg, #0b1026, #1b2348, #2c2d5f);
+}
+
+body.night-mode h1,
+body.night-mode h2,
+body.night-mode p {
+    color: #f7f2ff;
+}
+
+body.night-mode #yesBtn,
+body.night-mode #openBtn,
+body.night-mode #giftBtn,
+body.night-mode #musicBtn {
+    background: #8d7dff;
+    color: white;
+}
+
+body.night-mode #noBtn {
+    background: #2a2a45;
+    color: white;
+    border: 2px solid #8d7dff;
+}
+
+body.night-mode .ribbon {
+    filter: drop-shadow(0 0 12px #fff4a8);
+}
+
+body.night-mode #musicBtn{
+    filter: drop-shadow(0 0 10px #ffffff);
+}
+
+body.night-mode #dateBtn{
+    background:#8d7dff;
+    color:white;
+}
+
+body.night-mode #dateCard{
+    background:#252a50;
+    color:white;
+}
+
+/* ===== MOBILE RESPONSIVENESS ===== */
+
+@media (max-width: 700px) {
+    h1 {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 1.6rem;
+    }
+    .buttons {
+        flex-direction: column;
+    }
+    .slideshow img {
+        width: 240px;
+        height: 320px;
+    }
+    .ribbon {
+        font-size: 45px;
+    }
+}
+
+/* ===== Landing decorations fade ===== */
+
+#plant,
+#moon,
+#teddy,
+#dateBtn{
+    opacity:1;
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.hideDecor{
+    opacity: 0 !important;
+    transform: translateY(20px) scale(.9);
+    pointer-events: none !important; /* Disables clicks only when hidden */
+}
